@@ -1,29 +1,32 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div id="app" class="main-container">
+    <div class="container flex-align-center">
+      <router-view @authenticated="setAuthenticated"/>
+      <div class="row w100 mb-2">
+        <div class="logo-adct">
+          <p>créé par</p>
+          <a href="https://addictic.fr" title="Lien vers le site d'Addictic" target="_blank">
+            <img src="../src/assets/image/logo-adct.png" alt="Logo Addictic" />
+          </a>
+        </div>
+      </div>
+      <p class="contact mb-1">signaler un problème : <a href="mailto:support@addictic.fr" rel="noopener">support@addictic.fr</a></p>
     </div>
-    <router-view/>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+  export default {
+    name: 'App',
+    data() {
+      return {
+        authenticated: this.$store.state.authenticated
+      }
+    },
+    methods: {
+      setAuthenticated(status) {
+        this.$store.actions.setAuthenticated(status)
+      }
     }
   }
-}
-</style>
+</script>

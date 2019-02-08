@@ -1,0 +1,18 @@
+/* ---------------------------------------------------------------------------------------------------------------------
+MEDIA QUERIES (breakpoint based on Bootstrap 4)
+--------------------------------------------------------------------------------------------------------------------- */
+$CANVAS: (
+        SM: $SM,
+        MD: $MD,
+        LG: $LG,
+        XL: $XL
+);
+@mixin MQ($canvas, $width: min-width) {
+  @if $width != min-width {
+    $width: max-width;
+    $canvas: $canvas - 1px;
+  }
+  @media screen and ($width: $canvas) {
+    @content;
+  }
+}

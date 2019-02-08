@@ -1,0 +1,475 @@
+@import "~bootstrap/scss/bootstrap-reboot";
+@import "~bootstrap/scss/bootstrap-grid";
+@import "utils/variable";
+@import "utils/mixin";
+@import "utils/global";
+@import "utils/util";
+@import "utils/font";
+@import "utils/card";
+@import "utils/button";
+@import "utils/form";
+
+body {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  @include MQ($MD) {
+    height: 100vh;
+    display: flex;
+    padding-top: 2rem;
+    &.flex-align-center {
+      align-items: center;
+    }
+  }
+
+  .main-container {
+    width: 100%;
+  }
+
+  .logo-adct {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 5rem;
+    margin: 3rem auto 0 auto;
+
+    p {
+      color: $gray-medium;
+      font-size: 0.6rem;
+      margin: 0;
+    }
+
+  }
+
+  .back-department-list {
+    width: 200px;
+    margin: 1rem auto 0 auto;
+    text-align: center;
+
+    @include MQ($MD) {
+      width: auto;
+      margin: 1rem 0 0 0;
+      float: right;
+    }
+
+    a {
+      font-size: 0.7rem;
+      color: $blue;
+    }
+  }
+
+  .contact {
+    display: block;
+    margin: 0 auto;
+    font-size: 0.7rem;
+    color: $gray-medium;
+    text-align: center;
+  }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// LOGOUT BTN
+// ---------------------------------------------------------------------------------------------------------------------
+.logout-btn {
+  position: absolute;
+  top: 3rem;
+  right: 0;
+  font-size: 0.8rem;
+  @include MQ($XS) {
+    top: 0;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: $gray-black;
+  }
+
+  i {
+    padding: 0.7rem;
+    right: 0;
+    bottom: 0;
+    color: $white;
+    background-color: $gray;
+
+    &:hover {
+      background-color: darken($gray, 10);
+      color: $blue;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// NAV
+// ---------------------------------------------------------------------------------------------------------------------
+nav {
+  width: 100%;
+  height: 100%;
+  background-color: $gray-light;
+  font-size: 0.9rem;
+  text-align: center;
+
+  ul {
+    li {
+      width: 100%;
+
+      &.active a {
+        display: inline-block;
+        width: 100%;
+        padding: 1rem;
+        background-color: $blue;
+        color: $gray-black;
+      }
+
+      a {
+        display: inline-block;
+        width: 100%;
+        padding: 1rem;
+
+        &:hover {
+          background-color: $blue;
+          color: $gray-black;
+        }
+      }
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// LOGIN
+// ---------------------------------------------------------------------------------------------------------------------
+#login {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 1rem;
+  @include MQ($MD) {
+    padding-top: 0;
+    justify-content: center;
+  }
+
+  .login-ban {
+    position: relative;
+    display: none;
+    padding-bottom: 1rem;
+    z-index: -1;
+
+    @include MQ($SM) {
+      display: block;
+      padding-bottom: 2rem;
+    }
+
+    @include MQ($LG) {
+      padding-bottom: 3rem;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .card {
+    @include MQ($SM) {
+      width: 25rem;
+    }
+
+    &.register {
+      padding: 1rem 3rem;
+      @include MQ($SM) {
+        padding: 1rem 5rem;
+      }
+    }
+  }
+
+  .login-submit-btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// REGISTER
+// ---------------------------------------------------------------------------------------------------------------------
+#register {
+  button {
+    &.changePwd {
+      position: relative;
+      display: block;
+      margin: 0 auto;
+      @include MQ($MD) {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin-bottom: 0.8rem;
+      }
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// DEPARTMENT LIST
+// ---------------------------------------------------------------------------------------------------------------------
+#department-list {
+  .color-text {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+
+  .color {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    border: 0.5px solid $gray;
+    justify-content: center;
+    align-items: center;
+    @include MQ($LG) {
+      width: 4.3rem;
+      height: 4.3rem;
+    }
+  }
+
+  .actions {
+    margin-bottom: 0.3rem;
+
+    a {
+      &:hover {
+        text-decoration: none;
+        &i{
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .brand-img {
+    width: 100%;
+    height: 100%;
+    max-height: 8.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    overflow: hidden;
+    @include MQ($MD) {
+      margin-top: 1rem;
+    }
+
+    img {
+      width: auto;
+      height: 100%;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// CREATE SIGNATURE
+// ---------------------------------------------------------------------------------------------------------------------
+#createSignature {
+  .help {
+    position: relative;
+    i {
+      position: absolute;
+      right: 1rem;
+      font-size: 1.3rem;
+      color: $blue;
+      cursor: pointer;
+      &:hover {
+        color: darken($blue, 10);
+      }
+    }
+  }
+  form {
+    table {
+      tr {
+        td {
+          position: relative;
+          .form-group {
+            position: static;
+            margin: 0;
+            &:hover:after {
+              background-color: darken($blue, 10);
+              color: $white;
+            }
+            &:after {
+              position: absolute;
+              top: 0;
+              right: 0;
+              content: '\e906';
+              padding: 0.2rem 0.4rem;
+              font-size: 0.7rem;
+              font-family: icomoon;
+              color: $gray-black;
+              background-color: $blue;
+              cursor: pointer;
+              pointer-events: none;
+              box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+              transition: 0.3s ease-in-out;
+            }
+            .custom-file-input {
+              position: absolute;
+              top: 0;
+              left: 0;
+              bottom: 0;
+              right: 0;
+              height: 100%;
+              width: 100%;
+              opacity: 0;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+    .pickr-triggers {
+      margin: 0.5rem 0 0.5rem 0;
+      span {
+        font-size: 0.8rem;
+        color: $gray;
+      }
+      .pcr-button {
+        width: 90px;
+        height: 90px;
+        border: 3px solid $gray-medium;
+        border-radius: 0;
+      }
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// GET SIGNATURE
+// ---------------------------------------------------------------------------------------------------------------------
+#signature {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .documentation {
+    text-align: center;
+    h3 {
+      margin-bottom: 1rem;
+      color: $gray;
+      font-size: 1.1rem;
+    }
+
+    .icons {
+      position: relative;
+
+      i {
+        padding: 0.3rem;
+        font-size: 1.7rem;
+        opacity: 0.65;
+        color: $gray;
+        transition: color 0.3s ease-in-out;
+
+        &:hover {
+          color: $blue;
+          opacity: 1;
+          cursor: pointer;
+          &:after {
+            opacity: 1;
+          }
+        }
+        &:after {
+          content: attr(data-text);
+          position: absolute;
+          font-family: $font-family-regular;
+          width: 100%;
+          top: 100%;
+          left: 0;
+          margin-top: 1.8rem;
+          font-size: 0.7rem;
+          color: $gray;
+          text-align: center;
+          opacity: 0;
+        }
+      }
+    }
+
+    & > p {
+      margin-top: 0.5rem;
+      font-size: 0.7rem;
+      color: $gray;
+    }
+  }
+
+  .message-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    .message {
+      width: 100%;
+      text-align: center;
+      margin: 3rem 0 5rem 0;
+
+      i {
+        padding: 0.6rem 0.45rem;
+        border: 1px solid $blue;
+        border-radius: 100%;
+        font-size: 0.5rem;
+        color: $blue;
+        @include MQ($SM) {
+          padding: 0.6rem 0.45rem;
+          border: 1.5px solid $blue;
+          font-size: 0.7rem;
+        }
+      }
+
+      p {
+        display: inline-block;
+        margin-top: 1rem;
+        margin-left: 1rem;
+        font-size: 1rem;
+        font-family: $font-family-semibold;
+        color: $blue;
+        @include MQ($SM) {
+          font-size: 1.1rem;
+        }
+        @include MQ($MD) {
+          margin-top: 0;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+
+  .container {
+    max-width: 690px;
+    .send-btn {
+      .box {
+        max-width: 300px;
+        text-align: center;
+        margin: 1.5rem auto;
+        @include MQ($LG) {
+          margin: 0 auto;
+        }
+        i {
+          display: block;
+          margin-bottom: 1rem;
+          font-size: 4rem;
+          color: $gray;
+          text-align: center;
+        }
+        .btn {
+          display: block;
+          margin: 0 auto;
+          max-width: 200px;
+          padding: 0.4rem 1.8rem;
+          color: $white;
+          font-size: 0.7rem;
+          background-color: $gray;
+          &:hover {
+            background-color: darken($gray, 10);
+            color: $blue;
+          }
+        }
+      }
+    }
+  }
+}

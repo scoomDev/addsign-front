@@ -1,0 +1,62 @@
+.w100 {
+  width: 100%;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+@for $i from 0 through 8 {
+  .mt-#{$i} {
+    margin-top: #{$i}rem !important;
+  }
+  .mt-xs-#{$i} {
+    margin-top: 0;
+    @include MQ($XS) {
+      margin-top : #{$i}rem !important;
+    }
+  }
+}
+
+@for $i from 0 through 8 {
+  .mb-#{$i} {
+    margin-bottom : #{$i}rem !important;
+  }
+}
+
+@for $i from 0 through 8 {
+  .mr-#{$i} {
+    margin-right : #{$i}rem !important;
+  }
+  .mr-xs-#{$i} {
+    margin-right: 0;
+    @include MQ($XS) {
+      margin-right : #{$i}rem !important;
+    }
+  }
+}
+
+@for $i from 0 through 8 {
+  .ml-#{$i} {
+    margin-left : #{$i}rem !important;
+  }
+  .ml-xs-#{$i} {
+    margin-left: 0;
+    @include MQ($XS) {
+      margin-left : #{$i}rem !important;
+    }
+  }
+}
+
+.text-primary {
+  color: $blue;
+}
+
+.text-secondary {
+  color: $gray;
+}
+
+.center {
+  display: block;
+  margin: 0 auto;
+}

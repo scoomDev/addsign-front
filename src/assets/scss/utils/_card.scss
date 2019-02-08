@@ -1,0 +1,95 @@
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  @include MQ($SM) {
+    padding: 2rem 3rem;
+  }
+  @include MQ($MD) {
+    padding: 2rem 5rem;
+  }
+  background-color: $white;
+  box-shadow: $shadow;
+
+  .card-body {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  &.card-modal {
+    position: relative;
+    top: 0;
+    display: block;
+    margin: 0 auto;
+    max-height: 100vh;
+    overflow-x: hidden;
+    .card-body {
+      display: block;
+      .card-header {
+        display: block;
+        text-align: center;
+        margin-bottom: 2rem;
+        i {
+          display: block;
+          margin-bottom: 0.5rem;
+          font-size: 1.7rem;
+          color: $blue;
+        }
+        span {
+          display: block;
+          font-size: 0.6rem;
+          color: $gray;
+        }
+        .close-btn {
+          position: absolute;
+          top: 0;
+          right: 0;
+          cursor: pointer;
+          i {
+            margin: 0;
+            padding: 0.6rem;
+            font-size: 1rem;
+            color: $white;
+            background-color: $gray;
+            &:hover {
+              background-color: darken($gray, 10);
+            }
+          }
+
+        }
+      }
+      .card-content {
+        text-align: justify;
+        .important {
+          margin-bottom: 1rem;
+          padding: 1rem 2rem;
+          color: $white;
+          background-color: $gray;
+          box-shadow: $shadow;
+          strong {
+            font-size: 1.2rem;
+            font-family: "montserrat-semibold", sans-serif;
+            font-weight: bolder;
+            text-transform: uppercase;
+          }
+          p {
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.card-list {
+  padding: 1.2rem;
+  @include MQ($SM) {
+    padding: 2rem;
+  }
+}

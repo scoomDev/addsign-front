@@ -1,0 +1,200 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-size: 16px;
+  font-family: $font-family-regular;
+}
+
+body {
+  background-color: $gray-light;
+  padding: 0;
+  @include MQ($SM) {
+    padding: 0 1rem;
+  }
+  @include MQ($MD) {
+    padding: 0;
+  }
+}
+
+.wrapper {
+  &.modal {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 100;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+    pointer-events: none;
+    overflow: hidden;
+    &.visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .container {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      height: 100vh;
+      transform: translateY(100vh);
+      transition: 0.4s cubic-bezier(.19,1,.25,1.05);
+      &.visible {
+        transform: translateY(0);
+        opacity: 1;
+        transition-delay: 0.15s;
+      }
+    }
+  }
+}
+
+a {
+  color: $gray;
+  text-decoration: none;
+
+  &:hover {
+    color: $blue;
+  }
+
+  i {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+i {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+h1 {
+  margin-bottom: 0.8rem;
+  font-family: "orkney-light", sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.05rem;
+}
+
+h2 {
+  margin: 1.5rem 0 1rem 0;
+  font-family: "orkney-light", sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  color: $blue;
+}
+
+h3 {
+  margin: 1.5rem 0 0 0;
+}
+
+hr {
+  height: 1px;
+  margin: 0 0 1rem 0;
+  border: none;
+  background-color: $blue;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// FROM MESSAGES
+// ---------------------------------------------------------------------------------------------------------------------
+.invalid-feedback {
+  .form-error-icon {
+    &.badge {
+      padding: 0 0.6rem;
+      border-radius: 8px;
+      color: $white;
+      &.badge-danger {
+        background-color: $red;
+      }
+    }
+  }
+}
+.form-error-message {
+  color: $red;
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// MESSAGE FLASHES
+// ---------------------------------------------------------------------------------------------------------------------
+.msg-flash, .alert {
+  position: relative;
+  top: 1rem;
+  right: 0;
+  display: block;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  padding: 0.6rem 3rem;
+  text-align: center;
+  border-radius: 2px;
+  box-shadow: $shadow;
+  z-index: $msg-flashes;
+
+  &.flash-success {
+    color: white;
+    background-color: $blue;
+  }
+
+  &.flash-warning {
+    color: white;
+    background-color: $orange;
+  }
+
+  &.flash-error, &.alert-danger {
+    color: white;
+    background-color: $red;
+  }
+}
+
+form {
+  .alert {
+    position: relative;
+    top: 1rem;
+    right: 0;
+    display: block;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    padding: 0.6rem 3rem;
+    text-align: center;
+    border-radius: 0;
+    box-shadow: none;
+    z-index: $msg-flashes;
+    .badge {
+      color: $white;
+      padding: 0.1rem 0.2rem;
+      font-size: 0.8rem;
+      margin-right: 0.5rem;
+      border-radius: 5px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+      &-danger {
+        background-color: $red;
+      }
+    }
+  }
+  .alert-danger {
+    background-color: $white !important;
+    color: $red !important;
+  }
+}
