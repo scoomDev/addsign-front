@@ -2,7 +2,7 @@
     <div id="login">
 
         <div id="nav">
-            <router-link v-if="authenticated" to="/login" v-on:click.native="logout()" replace>Logout</router-link>
+            <router-link v-if="getAuthenticated" to="/" v-on:click.native="logout()" replace>Logout</router-link>
         </div>
 
         <div class="login-ban">
@@ -39,22 +39,14 @@
         components: {
             LoginForm
         },
-        data() {
-            return {
-                authenticated: this.$store.authenticated
-            }
-        },
-        mounted() {
-            if(!this.$store.authenticated) {
-                this.$router.replace({name: "login"});
+        computed: {
+            getAuthenticated() {
+                return this.$store.state.authenticated
             }
         },
         methods: {
-            setAuthenticated(status) {
-                this.$store.authenticated = status;
-            },
             logout() {
-                this.$store.authenticated = false;
+                return this.$store.commit('logout')
             }
         }
     }

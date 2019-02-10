@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="main-container">
     <div class="container flex-align-center">
-      <router-view @authenticated="setAuthenticated"/>
+      <router-view @authenticated="getAuthenticated"/>
       <div class="row w100 mb-2">
         <div class="logo-adct">
           <p>créé par</p>
@@ -18,14 +18,9 @@
 <script>
   export default {
     name: 'App',
-    data() {
-      return {
-        authenticated: this.$store.state.authenticated
-      }
-    },
-    methods: {
-      setAuthenticated(status) {
-        this.$store.actions.setAuthenticated(status)
+    computed: {
+      getAuthenticated() {
+        return this.$store.state.authenticated
       }
     }
   }

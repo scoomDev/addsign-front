@@ -39,9 +39,7 @@
                 console.log(this.input.email, this.input.password);
                 if(this.input.email && this.input.password) {
                     if(this.input.email === this.$store.state.mockAccount.email && this.input.password === this.$store.state.mockAccount.password) {
-                        console.log(this.$store.state.mockAccount.email)
-                        console.log(this.$store.state.mockAccount.password)
-                        console.log("Great bro !")
+                        this.$store.commit('setAuthenticated');
                     } else {
                         console.log("The username and / or password is incorrect");
                     }

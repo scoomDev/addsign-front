@@ -12,12 +12,16 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    setAuthenticated(state) {
+      console.log('set authenticated true')
+      state.authenticated = true;
+    },
+    logout(state) {
+      state.authenticated = false;
+    }
 
   },
   actions: {
-    setAuthenticated(status) {
-      this.authenticated = status;
-    }
 
   }
 })
